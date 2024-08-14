@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# Helpdesk Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple Helpdesk app created using React. It includes multiple pages for handling tickets, customers, profiles, and admin functionalities. The app uses React Router for navigation and a global context to manage state across the application.
 
-## Available Scripts
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Components](#components)
+- [Context](#context)
+- [Routes](#routes)
+- [License](#license)
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/helpdesk-app.git
+    cd helpdesk-app
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Start the development server:
+    ```bash
+    npm start
+    ```
 
-### `npm test`
+The application should now be running on `http://localhost:3000`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+The application consists of the following pages:
+- **HomePage**: The landing page of the application.
+- **TicketsPage**: Displays a list of tickets.
+- **CustomersPage**: Displays a list of customers.
+- **ProfilePage**: Shows the profile information of the logged-in user.
+- **AdminPage**: Restricted to users with an admin role. Displays administrative controls.
+- **TicketStatus**: Shows the status of a particular ticket.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Navigate between these pages using the sidebar.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+src/
+├── components/
+│ ├── AdminPage.js
+│ ├── CustomersPage.js
+│ ├── HomePage.js
+│ ├── ProfilePage.js
+│ ├── Sidebar.js
+│ ├── TicketStatus.js
+│ └── TicketsPage.js
+├── App.css
+├── App.js
+└── index.js
 
-### `npm run eject`
+## Components
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `App.js`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The root component of the application. It sets up the context and the routes for the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### `Sidebar.js`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The sidebar component provides navigation links to different pages of the application.
 
-## Learn More
+### `HomePage.js`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The landing page of the application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `TicketsPage.js`
 
-### Code Splitting
+Displays a list of tickets.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### `CustomersPage.js`
 
-### Analyzing the Bundle Size
+Displays a list of customers.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `ProfilePage.js`
 
-### Making a Progressive Web App
+Shows the profile information of the logged-in user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### `AdminPage.js`
 
-### Advanced Configuration
+Restricted to users with an admin role. Displays administrative controls.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### `TicketStatus.js`
 
-### Deployment
+Shows the status of a particular ticket.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Context
 
-### `npm run build` fails to minify
+### `userContext`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The `userContext` provides global state management for the user information, customer data, index, and update details.
+
+```javascript
+export const userContext = createContext();
+
+function App() {
+  const [userInfo, setUserInfo] = useState({
+    "id": "",
+    "name": "",
+    "email": "",
+    "role": "",
+    "status": "Pending",
+    "priority": ""
+  });
+
+  const [customerData, setCustomerData] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [updateDetails, setUpdateDetails] = useState({});
+
+  return (
+    <userContext.Provider value={{ userInfo, setUserInfo, customerData, setCustomerData, index, setIndex, updateDetails, setUpdateDetails }}>
+      <div className="app">
+        <Sidebar />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/tickets" element={<TicketsPage />} />
+            <Route path='/customers' element={<CustomersPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path='/ticketstatus' element={<TicketStatus />} />
+          </Routes>
+        </div>
+      </div>
+    </userContext.Provider>
+  );
+}
+
+export default App;
+
+### Routes
+The application uses react-router-dom to handle navigation. The following routes are defined:
+
+/: Renders the HomePage component.
+/tickets: Renders the TicketsPage component.
+/customers: Renders the CustomersPage component.
+/profile: Renders the ProfilePage component.
+/admin: Renders the AdminPage component.
+/ticketstatus: Renders the TicketStatus component.
+
+### License
+
+
+Save this content in a file named `README.md` in your project directory.
