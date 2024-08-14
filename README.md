@@ -98,6 +98,9 @@ Shows the status of a particular ticket.
 
 The `userContext` provides global state management for the user information, customer data, index, and update details.
 
+### License
+Save this content in a file named `README.md` in your project directory.
+
 ```javascript
 export const userContext = createContext();
 
@@ -146,7 +149,7 @@ The application uses react-router-dom to handle navigation. The following routes
 /admin: Renders the AdminPage component.
 /ticketstatus: Renders the TicketStatus component.
 
-### License
 
 
-Save this content in a file named `README.md` in your project directory.
+
+
