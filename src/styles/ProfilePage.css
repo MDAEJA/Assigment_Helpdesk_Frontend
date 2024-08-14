@@ -1,0 +1,28 @@
+/* src/components/ProfilePage.css */
+.profile-page {
+    padding: 20px;
+    margin-left: 220px; /* Adjust according to your sidebar width */
+    background-color: #f3f3f3;
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-page h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .profile-page .profile-name {
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  
+  .profile-page .profile-email {
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  

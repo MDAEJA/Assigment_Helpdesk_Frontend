@@ -1,0 +1,127 @@
+/* ProfilePage.css */
+
+.profile-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  
+  /* Update Status Section */
+  .update-status {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .update-status h2 {
+    margin: 0;
+    color: #4a90e2;
+  }
+  
+  .update-status select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  /* Profile Header */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .profile-picture {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-info {
+    flex: 1;
+  }
+  
+  .profile-name {
+    margin: 0;
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .profile-email {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Profile Bio */
+  .profile-bio {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-bio h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #ff6f61;
+  }
+  
+  .profile-bio p {
+    margin: 0;
+    color: #666;
+  }
+  
+  /* Profile Details */
+  .profile-details {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-details h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #4a90e2;
+  }
+  
+  .profile-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .profile-details li {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .profile-details a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .profile-details a:hover {
+    text-decoration: underline;
+  }
+  
