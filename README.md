@@ -15,7 +15,7 @@ This project is a simple Helpdesk app created using React. It includes multiple 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/helpdesk-app.git
+    git clone https:https://github.com/MDAEJA/Assigment_Helpdesk_Frontend.git
     cd helpdesk-app
     ```
 
